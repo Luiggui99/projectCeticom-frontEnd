@@ -1,0 +1,55 @@
+<h2>Detalle de Ventas</h2>
+<div class="row">
+    <div class="col-md-4">
+        <label class="form-label">Nombres</label>
+        <input type="email" class="form-control"  [(ngModel)]="cliente.nombres">
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Apellidos</label>
+        <input type="text" class="form-control"  [(ngModel)]="cliente.apellidos">
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">DNI</label>
+        <input type="text" class="form-control" [(ngModel)]="cliente.dni">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <label class="form-label">Teléfono</label>
+        <input type="email" class="form-control"  [(ngModel)]="cliente.telefono">
+    </div>
+    <div class="col-md-7">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control"  [(ngModel)]="cliente.email">
+    </div>
+</div>
+
+<table class="table table-hover text-center mt-5">
+    <thead class="table-dark">
+        <tr>
+            <th>Producto</th>
+            <th>Precio unitario</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of productos">
+            <td>{{item.nombre}}</td>
+            <td>{{item.precio}}</td>
+            <td>{{item.cantidad}}</td>
+            <td>{{item.precio! * item.cantidad! | number : '.2'}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="mt-5 row">
+    <div class="col-md-3">
+        <label for="">Fecha</label>
+        <input type="date" class="form-control" [(ngModel)]="venta.fecha">
+    </div>
+    <div class="col-md-3 float-end">
+        <label for="">Total</label>
+        <input type="text" class="form-control" [(ngModel)]="total">
+    </div>
+</div>

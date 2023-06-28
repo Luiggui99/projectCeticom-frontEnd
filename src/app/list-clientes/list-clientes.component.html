@@ -1,0 +1,26 @@
+<a routerLink="registrar-cliente" class="btn btn-success btn-sm mb-3">Añadir</a>
+<h2>Lista de clientes</h2>
+<table class="table table-hover text-center">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>DNI</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Operación</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes">
+            <td>{{cliente.nombres}}</td>
+            <td>{{cliente.apellidos}}</td>
+            <td>{{cliente.dni}}</td>
+            <td>{{cliente.telefono}}</td>
+            <td>{{cliente.email}}</td>
+            <td>
+                <button (click)="comprar(cliente.id)" class="btn btn-warning btn-sm">Realizar comprar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

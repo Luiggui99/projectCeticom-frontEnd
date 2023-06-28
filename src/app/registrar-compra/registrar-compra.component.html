@@ -1,0 +1,50 @@
+<div class="container">
+    <h5 class="mt-5"> Va a realizar una compra con el cliente: {{cliente.nombres}} {{cliente.apellidos}} </h5>
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <h3>Productos</h3>
+            <table class="table table-hover mt-2 text-center">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let producto of productos | paginate: { itemsPerPage: 5, currentPage: page }">
+                        <td>{{ producto.nombre }}</td>
+                        <td>{{ producto.precio | number: '.2' }}</td>
+                        <td>
+                            <button class="btn btn-info btn-sm" (click)="addCart(producto)">Añadir +1</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+        </div>
+        <div class="col-md-8">
+            <h4>Carrito de compras</h4>
+            <button class="btn btn-danger btn-sm float-end mb-2" (click)="resetCart()">Eliminar Carrito</button>
+            <table class="table table-hover mt-2 text-center">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of listCart">
+                    <tr>
+                        <td> {{item.nombre}} </td>
+                        <td> {{item.precio | number: '.2'}} </td>
+                        <td> {{item.cantidad}} </td>
+                        <td> {{item.precio! * item.cantidad! | number: '.2'}} </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-success btn-sm float-end mt-3" (click)="saveVenta()">Generar Venta</button>
+        </div>
+    </div>
+</div>

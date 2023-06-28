@@ -1,0 +1,31 @@
+<h2>Lista de Ventas</h2>
+<div class="row my-5 float-lg-end">
+    <div class="col-md-8">
+        <input type="date" class="form-control">
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-success btn-sm">Buscar</button>
+    </div>
+</div>
+<table class="table table-hover text-center">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre completo</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let venta of ventas | paginate: { itemsPerPage: 5, currentPage: page }">
+            <td>{{venta.cliente?.nombres}} {{venta.cliente?.apellidos}}</td>
+            <td>{{venta.fecha}}</td>
+            <td>pendiente</td>
+            <td>
+                <button class="btn btn-info btn-sm" (click)="detalleVenta(venta.id)">Detalles</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>

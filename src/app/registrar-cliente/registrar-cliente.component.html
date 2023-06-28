@@ -1,0 +1,31 @@
+<div class="col-md-6 offset-md-3">
+    <h4 class="text-center">Registro Cliente</h4>
+    <form (ngSubmit)="OnSubmit()">
+        <div class="form-group mb-3">
+            <label for="nombres" class="form-label">Nombres</label>
+            <input type="text" id="nombres" name="nombres" class="form-control" [(ngModel)]="cliente.nombres" required
+                placeholder="Ingrese nombres" #nombres="ngModel" />
+        </div>
+        <div class="form-group mb-3">
+            <label for="apellidos" class="form-label">Apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" class="form-control" [(ngModel)]="cliente.apellidos"
+                required placeholder="Ingrese apellidos" />
+        </div>
+        <div class="form-group mb-3">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="text" id="dni" name="dni" class="form-control" [(ngModel)]="cliente.dni" required
+                placeholder="Ingrese DNI" />
+        </div>
+        <div class="form-group mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" id="telefono" name="telefono" class="form-control" [(ngModel)]="cliente.telefono"
+                required placeholder="Ingrese teléfono" />
+        </div>
+        <div class="form-group mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-control" [(ngModel)]="cliente.email" required
+                placeholder="Ingrese email" />
+        </div>
+        <button class="btn btn-success btn-sm">Guardar</button>
+    </form>
+</div>
